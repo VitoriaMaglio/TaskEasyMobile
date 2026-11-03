@@ -74,33 +74,57 @@ export default function HomeScreen({ user, onAdicionar }: Props) {
     }
   }
 
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.logo}>✓ TaskEasy</Text>
+        <Text style={styles.logo}>✦ TaskEasy</Text>
+
         <TouchableOpacity onPress={sair}>
-          <Text style={styles.excluir}>Sair</Text>
+          <Text style={styles.excluir}>Sair →</Text>
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.titulo}>Minhas tarefas</Text>
-      <Text style={styles.subtitulo}>{user.email}</Text>
+      <Text style={styles.titulo}>Minhas tarefas ✨</Text>
+
+      <Text style={styles.subtitulo}>
+        Organize seu dia, uma tarefa de cada vez.
+      </Text>
+
+      <Text style={[styles.subtitulo, { marginBottom: 20 }]}>
+        {user.email}
+      </Text>
 
       <Text style={styles.contador}>
-        {tarefas.filter(t => t.completed).length} de {tarefas.length}
+        ✓ {tarefas.filter(t => t.completed).length} de {tarefas.length}
         {' '}tarefas concluídas
       </Text>
 
       {carregando ? (
-        <ActivityIndicator size="large" color="#6C4AB6" />
+        <ActivityIndicator
+          size="large"
+          color="#7353C7"
+          style={{ marginTop: 40 }}
+        />
       ) : (
         <FlatList
           data={tarefas}
           keyExtractor={item => item.id}
+          contentContainerStyle={{ paddingBottom: 20 }}
+          showsVerticalScrollIndicator={false}
           ListEmptyComponent={
-            <Text style={styles.vazio}>
-              Nenhuma tarefa cadastrada.
-            </Text>
+            <View style={{ alignItems: 'center', marginTop: 70 }}>
+              <Text style={{ fontSize: 42, marginBottom: 14 }}>
+                📝
+              </Text>
+              <Text style={[styles.tarefaTitulo, { fontSize: 18 }]}>
+                Tudo organizado por aqui!
+              </Text>
+              <Text style={styles.vazio}>
+                Você ainda não possui tarefas.
+                {'\n'}Que tal adicionar a primeira?
+              </Text>
+            </View>
           }
           renderItem={({ item }) => (
             <View style={styles.card}>
@@ -111,16 +135,22 @@ export default function HomeScreen({ user, onAdicionar }: Props) {
                 <Text style={styles.checkbox}>
                   {item.completed ? '☑' : '☐'}
                 </Text>
+
                 <View style={{ flex: 1 }}>
-                  <Text style={[
-                    styles.tarefaTitulo,
-                    item.completed && styles.concluida,
-                  ]}>
+                  <Text
+                    style={[
+                      styles.tarefaTitulo,
+                      item.completed && styles.concluida,
+                    ]}
+                  >
                     {item.title}
                   </Text>
-                  <Text style={styles.descricao}>
-                    {item.description}
-                  </Text>
+
+                  {!!item.description && (
+                    <Text style={styles.descricao}>
+                      {item.description}
+                    </Text>
+                  )}
                 </View>
               </TouchableOpacity>
 
@@ -132,8 +162,13 @@ export default function HomeScreen({ user, onAdicionar }: Props) {
         />
       )}
 
-      <TouchableOpacity style={styles.botao} onPress={onAdicionar}>
-        <Text style={styles.textoBotao}>+ Nova tarefa</Text>
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={onAdicionar}
+      >
+        <Text style={styles.textoBotao}>
+          + Adicionar nova tarefa
+        </Text>
       </TouchableOpacity>
     </View>
   );

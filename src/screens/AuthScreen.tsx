@@ -75,23 +75,42 @@ export default function AuthScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <View style={styles.card}>
-        <Text style={styles.logo}>✓ TaskEasy</Text>
+        <View style={styles.iconeContainer}>
+          <Text style={styles.icone}>✓</Text>
+        </View>
+
+        <Text style={styles.logo}>TaskEasy</Text>
+
         <Text style={styles.subtitulo}>
-          Organize suas tarefas com facilidade
+          Organize suas tarefas com leveza.
         </Text>
 
+        <Text style={styles.tituloFormulario}>
+          {cadastro ? 'Crie sua conta' : 'Bem-vindo de volta!'}
+        </Text>
+
+        <Text style={styles.descricao}>
+          {cadastro
+            ? 'Comece a organizar seu dia com a gente.'
+            : 'Entre na sua conta para continuar.'}
+        </Text>
+
+        <Text style={styles.label}>E-mail</Text>
         <TextInput
           style={styles.input}
-          placeholder="Seu e-mail"
+          placeholder="exemplo@email.com"
+          placeholderTextColor="#AAA5B5"
           keyboardType="email-address"
           autoCapitalize="none"
           value={email}
           onChangeText={setEmail}
         />
 
+        <Text style={styles.label}>Senha</Text>
         <TextInput
           style={styles.input}
-          placeholder="Sua senha"
+          placeholder="Digite sua senha"
+          placeholderTextColor="#AAA5B5"
           secureTextEntry
           value={senha}
           onChangeText={setSenha}
@@ -106,7 +125,7 @@ export default function AuthScreen() {
             <ActivityIndicator color="#fff" />
           ) : (
             <Text style={styles.textoBotao}>
-              {cadastro ? 'Criar conta' : 'Entrar'}
+              {cadastro ? 'Criar minha conta' : 'Entrar na minha conta'}
             </Text>
           )}
         </TouchableOpacity>
@@ -116,8 +135,8 @@ export default function AuthScreen() {
         >
           <Text style={styles.alternar}>
             {cadastro
-              ? 'Já possui uma conta? Entrar'
-              : 'Não possui uma conta? Cadastre-se'}
+              ? 'Já tem uma conta? Entrar'
+              : 'Não tem uma conta? Cadastre-se'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -129,50 +148,105 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 24,
-    backgroundColor: '#F4F1FF',
+    paddingHorizontal: 24,
+    backgroundColor: '#F8F7FC',
   },
+
   card: {
-    backgroundColor: '#fff',
-    padding: 24,
+    backgroundColor: '#FFFFFF',
+    padding: 28,
+    borderRadius: 26,
+    elevation: 4,
+    shadowColor: '#392B68',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.08,
+    shadowRadius: 20,
+  },
+
+  iconeContainer: {
+    width: 62,
+    height: 62,
     borderRadius: 20,
-    elevation: 3,
+    backgroundColor: '#EEE8FC',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: 14,
   },
-  logo: {
-    fontSize: 30,
+
+  icone: {
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#6C4AB6',
-    textAlign: 'center',
+    color: '#7353C7',
   },
+
+  logo: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: '#7353C7',
+    textAlign: 'center',
+    letterSpacing: -1,
+  },
+
   subtitulo: {
     textAlign: 'center',
-    color: '#777',
+    color: '#9994A7',
+    fontSize: 14,
     marginTop: 8,
-    marginBottom: 30,
+    marginBottom: 35,
   },
+
+  tituloFormulario: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#29253A',
+    marginBottom: 8,
+  },
+
+  descricao: {
+    fontSize: 14,
+    color: '#9994A7',
+    marginBottom: 28,
+  },
+
+  label: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#39334D',
+    marginBottom: 8,
+  },
+
   input: {
     borderWidth: 1,
-    borderColor: '#DDD',
-    borderRadius: 10,
-    padding: 14,
-    marginBottom: 14,
-    fontSize: 16,
-  },
-  botao: {
-    backgroundColor: '#6C4AB6',
+    borderColor: '#E9E5F2',
+    backgroundColor: '#FAF9FD',
+    borderRadius: 14,
     padding: 16,
-    borderRadius: 10,
+    marginBottom: 20,
+    fontSize: 15,
+    color: '#29253A',
+  },
+
+  botao: {
+    backgroundColor: '#7353C7',
+    padding: 18,
+    borderRadius: 14,
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 10,
+    elevation: 2,
   },
+
   textoBotao: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: '700',
+    fontSize: 15,
   },
+
   alternar: {
-    color: '#6C4AB6',
+    color: '#7353C7',
     textAlign: 'center',
-    marginTop: 22,
+    marginTop: 26,
+    fontSize: 14,
+    fontWeight: '600',
   },
 });

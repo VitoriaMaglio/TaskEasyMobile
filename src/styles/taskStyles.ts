@@ -4,105 +4,155 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F4F1FF',
-    padding: 20,
-    paddingTop: 55,
+    backgroundColor: '#F8F7FC',
+    paddingHorizontal: 24,
+    paddingTop: 60,
+    paddingBottom: 24,
   },
+
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 25,
+    marginBottom: 35,
   },
+
   logo: {
     fontSize: 26,
-    fontWeight: 'bold',
-    color: '#6C4AB6',
+    fontWeight: '800',
+    color: '#7353C7',
+    letterSpacing: -0.8,
   },
+
   titulo: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 30,
+    fontWeight: '800',
+    color: '#242038',
+    letterSpacing: -0.8,
   },
+
   subtitulo: {
-    color: '#777',
-    marginVertical: 8,
+    color: '#9691A6',
+    fontSize: 14,
+    marginTop: 7,
+    marginBottom: 24,
   },
+
   contador: {
-    color: '#6C4AB6',
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  card: {
-    backgroundColor: '#fff',
+    color: '#7353C7',
+    fontSize: 14,
+    fontWeight: '700',
+    backgroundColor: '#EEE8FC',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    marginBottom: 24,
+    overflow: 'hidden',
+  },
+
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18,
+    padding: 18,
+    marginBottom: 14,
     flexDirection: 'row',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#F0EDF7',
+    elevation: 2,
+    shadowColor: '#392B68',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
   },
+
   tarefaConteudo: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },
+
   checkbox: {
-    fontSize: 26,
-    color: '#6C4AB6',
-    marginRight: 12,
+    fontSize: 28,
+    color: '#7353C7',
+    marginRight: 14,
   },
+
   tarefaTitulo: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+    fontWeight: '700',
+    color: '#29253A',
+    marginBottom: 4,
   },
+
   concluida: {
     textDecorationLine: 'line-through',
-    color: '#999',
+    color: '#AAA5B5',
   },
+
   descricao: {
-    color: '#777',
-    marginTop: 5,
+    color: '#9994A7',
+    fontSize: 13,
+    lineHeight: 19,
   },
+
   excluir: {
-    color: '#D9534F',
-    fontWeight: 'bold',
-    padding: 8,
+    color: '#E36D7D',
+    fontWeight: '700',
+    fontSize: 13,
+    padding: 10,
   },
+
   botao: {
-    backgroundColor: '#6C4AB6',
-    padding: 16,
-    borderRadius: 12,
+    backgroundColor: '#7353C7',
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+    borderRadius: 16,
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 16,
+    elevation: 3,
+    shadowColor: '#7353C7',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
   },
+
   textoBotao: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '700',
     fontSize: 16,
+    letterSpacing: 0.2,
   },
+
   voltar: {
-    color: '#6C4AB6',
-    fontWeight: 'bold',
-    fontSize: 16,
+    color: '#7353C7',
+    fontWeight: '700',
+    fontSize: 15,
   },
+
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#DDD',
-    borderRadius: 10,
-    padding: 14,
-    marginTop: 8,
-    marginBottom: 20,
-    fontSize: 16,
+    borderColor: '#E9E5F2',
+    borderRadius: 14,
+    padding: 16,
+    marginTop: 10,
+    marginBottom: 24,
+    fontSize: 15,
+    color: '#29253A',
   },
+
   label: {
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#39334D',
   },
+
   vazio: {
     textAlign: 'center',
-    color: '#888',
-    marginTop: 60,
+    color: '#9994A7',
+    marginTop: 80,
+    fontSize: 15,
+    lineHeight: 24,
   },
 });
